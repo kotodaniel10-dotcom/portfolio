@@ -20,6 +20,7 @@ export default function Navbar() {
     { label: dict.nav.about, href: "#about" },
     { label: dict.nav.projects, href: "#projects" },
     { label: dict.nav.contact, href: "#contact" },
+    { label: "Music DB", href: "/music-db", isPage: true },
   ];
 
   return (
@@ -44,7 +45,11 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-gray-400 hover:text-neon-cyan transition-colors duration-300 relative group"
+              className={`text-sm transition-colors duration-300 relative group ${
+                (link as any).isPage
+                  ? "text-cyan-400 font-mono font-semibold hover:text-cyan-300"
+                  : "text-gray-400 hover:text-neon-cyan"
+              }`}
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-neon-cyan group-hover:w-full transition-all duration-300" />
